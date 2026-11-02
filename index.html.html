@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pakistan – Land of the Pure</title>
+<meta name="description" content="Explore Pakistan: its places, languages, food, culture and famous people.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#0B4F3A;
+  --green-dark:#06291f;
+  --ink:#14201b;
+  --paper:#f7faf8;
+  --mist:#e6efe9;
+  --gold:#e0a82e;
+  --ice:#9fd3e6;
+  --muted:#5b6b64;
+  --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.7;font-size:17px}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.15;font-weight:700}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{width:min(1180px,92%);margin:0 auto}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+/* NAV */
+header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,box-shadow .3s}
+header.solid{background:rgba(6,41,31,.96);box-shadow:0 4px 24px rgba(0,0,0,.25);backdrop-filter:blur(8px)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;color:#fff;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo i{width:28px;height:20px;display:inline-block;background:linear-gradient(90deg,#fff 0 25%,var(--green) 25% 100%);border:1px solid rgba(255,255,255,.6);border-radius:3px;position:relative}
+.logo i::after{content:"☪";position:absolute;inset:0;display:grid;place-items:center;font-style:normal;font-size:.7rem;color:#fff;left:5px}
+nav ul{display:flex;gap:26px;list-style:none}
+nav a{color:#fff;text-decoration:none;font-weight:600;font-size:.95rem;opacity:.9}
+nav a:hover{color:var(--gold);opacity:1}
+.burger{display:none;background:none;border:0;color:#fff;font-size:1.8rem;cursor:pointer}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:linear-gradient(160deg,#0B4F3A,#06291f 60%,#1b4d63)}
+.hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease;animation:slow 30s ease-in-out infinite alternate}
+.hero .bg.on{opacity:1}
+@keyframes slow{from{transform:scale(1)}to{transform:scale(1.08)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,41,31,.55) 0%,rgba(6,41,31,.25) 40%,rgba(6,41,31,.92) 100%)}
+.hero .wrap{position:relative;z-index:2;padding:0 0 90px}
+.hero h1{font-size:clamp(3rem,9vw,7rem);letter-spacing:-.02em;max-width:12ch}
+.hero p{font-size:1.2rem;max-width:56ch;margin:22px 0 34px;opacity:.95}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 30px;border-radius:50px;font-weight:700;text-decoration:none;transition:transform .2s,background .2s}
+.btn.gold{background:var(--gold);color:#201600}
+.btn.gold:hover{transform:translateY(-3px);background:#f1ba43}
+.btn.ghost{border:2px solid #fff;color:#fff}
+.btn.ghost:hover{background:#fff;color:var(--green)}
+.credit{position:absolute;right:4%;bottom:22px;z-index:2;font-size:.78rem;opacity:.75;color:#fff}
+
+/* FACTS */
+.facts{background:var(--green);color:#fff;padding:34px 0}
+.facts .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:24px;text-align:center}
+.facts b{display:block;font-family:'Fraunces',serif;font-size:1.7rem;color:var(--gold)}
+.facts span{font-size:.9rem;opacity:.85}
+
+/* SECTIONS */
+section{padding:100px 0}
+.alt{background:var(--mist)}
+.head{max-width:680px;margin-bottom:48px}
+.head h2{font-size:clamp(2rem,4.5vw,3.2rem);color:var(--green);margin-bottom:14px}
+.head p{color:var(--muted)}
+
+/* CARDS WITH PHOTOS */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:26px}
+.card{position:relative;border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:0 10px 30px rgba(11,79,58,.12);transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(11,79,58,.22)}
+.ph{aspect-ratio:4/3;background:linear-gradient(135deg,#0B4F3A,#1b6a52);overflow:hidden;position:relative}
+.ph::before{content:attr(data-label);position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.55);font-family:'Fraunces',serif;font-size:1.1rem;text-align:center;padding:10px}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s,transform .6s}
+.ph img.on{opacity:1}
+.card:hover .ph img{transform:scale(1.07)}
+.card .body{padding:20px 22px 24px}
+.card h3{font-size:1.3rem;color:var(--green);margin-bottom:6px}
+.card .tag{display:inline-block;font-size:.78rem;font-weight:700;color:#7a5600;background:#fbeec8;padding:2px 12px;border-radius:30px;margin-bottom:10px}
+.card p{font-size:.95rem;color:var(--muted);line-height:1.6}
+
+/* FEATURE BLOCK */
+.feature{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.feature .ph{aspect-ratio:5/4;border-radius:var(--radius);box-shadow:0 20px 50px rgba(0,0,0,.2)}
+.feature h3{font-size:2rem;color:var(--green);margin-bottom:16px}
+.feature p{margin-bottom:14px;color:#33433c}
+.feature ul{margin:14px 0 0 20px;color:#33433c}
+.feature li{margin-bottom:6px}
+
+/* PROVINCES */
+.prov{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.prov div{background:#fff;border-left:5px solid var(--gold);border-radius:12px;padding:22px;box-shadow:0 6px 20px rgba(0,0,0,.06)}
+.prov h3{font-size:1.2rem;color:var(--green);margin-bottom:6px}
+.prov p{font-size:.92rem;color:var(--muted)}
+
+/* LANGUAGES */
+.lang{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
+.lang div{background:#fff;border-radius:14px;padding:22px;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.07)}
+.lang .s{font-size:2.1rem;color:var(--green);margin-bottom:4px;font-family:'Noto Nastaliq Urdu','Segoe UI',serif;direction:rtl;line-height:1.6}
+.lang h3{font-size:1.1rem}
+.lang small{color:var(--muted);display:block;margin-top:4px;font-size:.85rem}
+
+/* TIMELINE */
+.timeline{position:relative;max-width:820px;margin:auto;padding-left:34px;border-left:3px solid var(--gold)}
+.timeline div{position:relative;margin-bottom:34px}
+.timeline div::before{content:"";position:absolute;left:-44px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--green);border:3px solid var(--gold)}
+.timeline b{font-family:'Fraunces',serif;color:var(--green);font-size:1.25rem}
+.timeline p{color:var(--muted)}
+
+/* PEOPLE */
+.people .ph{aspect-ratio:1/1}
+
+/* AUTHOR */
+.author{background:linear-gradient(150deg,var(--green-dark),var(--green));color:#fff}
+.author .box{display:grid;grid-template-columns:260px 1fr;gap:50px;align-items:center;max-width:900px;margin:auto}
+.avatar{width:240px;height:240px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#f6d57a);display:grid;place-items:center;font-family:'Fraunces',serif;font-size:5.5rem;color:var(--green-dark);border:6px solid rgba(255,255,255,.25);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.author h2{font-size:2.6rem;margin-bottom:6px}
+.author .role{color:var(--gold);font-weight:700;margin-bottom:18px}
+.author p{opacity:.92;margin-bottom:22px}
+.info{list-style:none;display:grid;gap:10px}
+.info li{display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.08);padding:12px 18px;border-radius:12px}
+.info a{text-decoration:none;word-break:break-all}
+.info a:hover{color:var(--gold)}
+
+footer{background:#04170f;color:#a9bdb4;text-align:center;padding:30px 0;font-size:.88rem}
+footer a{color:var(--gold)}
+
+/* RESPONSIVE */
+@media(max-width:860px){
+  .burger{display:block}
+  nav ul{position:absolute;top:72px;left:0;right:0;background:rgba(6,41,31,.98);flex-direction:column;gap:0;display:none}
+  nav ul.open{display:flex}
+  nav li a{display:block;padding:16px 6%}
+  .feature{grid-template-columns:1fr;gap:28px}
+  .author .box{grid-template-columns:1fr;text-align:center;justify-items:center}
+  section{padding:70px 0}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a class="logo" href="#top"><i></i>Pakistan</a>
+    <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    <nav>
+      <ul id="menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#places">Places</a></li>
+        <li><a href="#heritage">Heritage</a></li>
+        <li><a href="#languages">Languages</a></li>
+        <li><a href="#food">Food</a></li>
+        <li><a href="#culture">Culture</a></li>
+        <li><a href="#people">People</a></li>
+        <li><a href="#author">Author</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <img class="bg" alt="" data-wiki="Attabad_Lake" data-hero>
+  <img class="bg" alt="" data-wiki="K2" data-hero>
+  <img class="bg" alt="" data-wiki="Badshahi_Mosque" data-hero>
+  <div class="wrap">
+    <h1>Pakistan. Land of the Pure.</h1>
+    <p>From the glaciers of the Karakoram to the golden beaches of the Arabian Sea — a country of 5,000 years of civilisation, warm hospitality and breathtaking landscapes.</p>
+    <div class="btns">
+      <a class="btn gold" href="#places">Explore places</a>
+      <a class="btn ghost" href="#about">Learn more</a>
+    </div>
+  </div>
+  <span class="credit">Photos: Wikimedia Commons</span>
+</div>
+
+<!-- FACTS -->
+<div class="facts">
+  <div class="wrap grid">
+    <div><b>Islamabad</b><span>Capital</span></div>
+    <div><b>~241 million</b><span>Population (2023 census)</span></div>
+    <div><b>881,913 km²</b><span>Total area</span></div>
+    <div><b>14 Aug 1947</b><span>Independence Day</span></div>
+    <div><b>8,611 m</b><span>K2 – world’s 2nd highest peak</span></div>
+    <div><b>Rupee (PKR)</b><span>Currency</span></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="feature">
+      <div class="ph" data-label="Faisal Mosque"><img alt="Faisal Mosque, Islamabad" data-wiki="Faisal_Mosque"></div>
+      <div>
+        <h3>A country shaped by mountains, rivers and history</h3>
+        <p>Pakistan lies in South Asia, bordered by India, Afghanistan, Iran and China, with the Arabian Sea to the south. It is the fifth most populous country in the world and home to some of the highest mountains on Earth, the mighty Indus River, fertile plains, deserts and a long coastline.</p>
+        <p>The land was home to the Indus Valley Civilisation, one of the world’s earliest, and later saw Gandhara, Mauryan, Mughal and many other cultures leave their mark. Pakistan was created on 14 August 1947 under the leadership of Quaid-e-Azam Muhammad Ali Jinnah.</p>
+        <ul>
+          <li>National language: Urdu — official languages: Urdu &amp; English</li>
+          <li>National sport: Field hockey — most popular: Cricket</li>
+          <li>National animal: Markhor — national flower: Jasmine</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="head" style="margin-top:80px"><h2>Provinces &amp; regions</h2></div>
+    <div class="prov">
+      <div><h3>Punjab</h3><p>The most populous province. Heartland of agriculture, with Lahore as its cultural capital.</p></div>
+      <div><h3>Sindh</h3><p>Land of the Indus delta, Sufi shrines and Karachi, the country’s biggest city and port.</p></div>
+      <div><h3>Khyber Pakhtunkhwa</h3><p>Home of Pashtun culture, the Khyber Pass, Swat Valley and ancient Gandhara sites.</p></div>
+      <div><h3>Balochistan</h3><p>The largest province by area, with deserts, mountains, rich minerals and a vast coastline.</p></div>
+      <div><h3>Gilgit-Baltistan</h3><p>Home to K2, Nanga Parbat, Hunza and some of the greatest glaciers outside the poles.</p></div>
+      <div><h3>Azad Kashmir</h3><p>Green valleys, rivers and alpine lakes in the foothills of the Himalayas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLACES -->
+<section id="places" class="alt">
+  <div class="wrap">
+    <div class="head">
+      <h2>Places you must see</h2>
+      <p>Mountains, lakes, valleys and cities — Pakistan has some of the most spectacular scenery in the world.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="ph" data-label="Hunza Valley"><img alt="Hunza Valley" data-wiki="Hunza_Valley"></div><div class="body"><span class="tag">Gilgit-Baltistan</span><h3>Hunza Valley</h3><p>Apricot orchards, snow peaks like Rakaposhi and legendary hospitality. Often called a paradise on earth.</p></div></div>
+      <div class="card"><div class="ph" data-label="K2"><img alt="K2 mountain" data-wiki="K2"></div><div class="body"><span class="tag">Karakoram</span><h3>K2 – The Savage Mountain</h3><p>At 8,611 m, K2 is the second highest mountain in the world and a dream for climbers everywhere.</p></div></div>
+      <div class="card"><div class="ph" data-label="Attabad Lake"><img alt="Attabad Lake" data-wiki="Attabad_Lake"></div><div class="body"><span class="tag">Hunza</span><h3>Attabad Lake</h3><p>A turquoise lake formed by a landslide in 2010, now a top destination for boating and photography.</p></div></div>
+      <div class="card"><div class="ph" data-label="Fairy Meadows"><img alt="Fairy Meadows" data-wiki="Fairy_Meadows"></div><div class="body"><span class="tag">Gilgit-Baltistan</span><h3>Fairy Meadows</h3><p>A lush alpine meadow with a jaw-dropping view of Nanga Parbat, the ninth highest peak on Earth.</p></div></div>
+      <div class="card"><div class="ph" data-label="Deosai"><img alt="Deosai National Park" data-wiki="Deosai_National_Park"></div><div class="body"><span class="tag">Skardu</span><h3>Deosai Plains</h3><p>“Land of Giants” — one of the highest plateaus in the world, covered with wildflowers in summer.</p></div></div>
+      <div class="card"><div class="ph" data-label="Swat Valley"><img alt="Swat Valley" data-wiki="Swat_District"></div><div class="body"><span class="tag">Khyber Pakhtunkhwa</span><h3>Swat Valley</h3><p>The “Switzerland of the East” with green mountains, rivers, waterfalls and ancient Buddhist heritage.</p></div></div>
+      <div class="card"><div class="ph" data-label="Skardu"><img alt="Skardu" data-wiki="Skardu"></div><div class="body"><span class="tag">Baltistan</span><h3>Skardu</h3><p>Gateway to K2, with Shangrila Resort, Satpara Lake and cold-desert dunes.</p></div></div>
+      <div class="card"><div class="ph" data-label="Murree"><img alt="Murree" data-wiki="Murree"></div><div class="body"><span class="tag">Punjab</span><h3>Murree</h3><p>Pakistan’s most popular hill station, close to Islamabad and Rawalpindi, famous for pine forests and snow.</p></div></div>
+      <div class="card"><div class="ph" data-label="Minar-e-Pakistan"><img alt="Minar-e-Pakistan" data-wiki="Minar-e-Pakistan"></div><div class="body"><span class="tag">Lahore</span><h3>Minar-e-Pakistan</h3><p>A national monument built where the Lahore Resolution was passed in 1940.</p></div></div>
+      <div class="card"><div class="ph" data-label="Mazar-e-Quaid"><img alt="Mazar-e-Quaid" data-wiki="Mazar-e-Quaid"></div><div class="body"><span class="tag">Karachi</span><h3>Mazar-e-Quaid</h3><p>The white marble mausoleum of Muhammad Ali Jinnah, the founder of Pakistan.</p></div></div>
+      <div class="card"><div class="ph" data-label="Wagah Border"><img alt="Wagah border ceremony" data-wiki="Wagah"></div><div class="body"><span class="tag">Lahore</span><h3>Wagah Border Ceremony</h3><p>A daily flag-lowering ceremony full of energy, parade drills and patriotic chants.</p></div></div>
+      <div class="card"><div class="ph" data-label="Nanga Parbat"><img alt="Nanga Parbat" data-wiki="Nanga_Parbat"></div><div class="body"><span class="tag">Himalaya</span><h3>Nanga Parbat</h3><p>The “Killer Mountain”, rising 8,126 m above the Indus and one of the world’s tallest peaks.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HERITAGE -->
+<section id="heritage">
+  <div class="wrap">
+    <div class="head">
+      <h2>Heritage &amp; historic sites</h2>
+      <p>Pakistan is home to UNESCO World Heritage Sites and some of the finest Mughal architecture ever built.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="ph" data-label="Badshahi Mosque"><img alt="Badshahi Mosque" data-wiki="Badshahi_Mosque"></div><div class="body"><span class="tag">Lahore · Mughal</span><h3>Badshahi Mosque</h3><p>Built in 1673 by Emperor Aurangzeb, it was the largest mosque in the world for about 300 years.</p></div></div>
+      <div class="card"><div class="ph" data-label="Lahore Fort"><img alt="Lahore Fort" data-wiki="Lahore_Fort"></div><div class="body"><span class="tag">UNESCO</span><h3>Lahore Fort</h3><p>A royal citadel with the famous Sheesh Mahal (Palace of Mirrors) and grand Mughal gateways.</p></div></div>
+      <div class="card"><div class="ph" data-label="Shalimar Gardens"><img alt="Shalimar Gardens Lahore" data-wiki="Shalimar_Gardens,_Lahore"></div><div class="body"><span class="tag">UNESCO</span><h3>Shalimar Gardens</h3><p>Terraced Mughal gardens with fountains and pavilions, built by Shah Jahan in 1641.</p></div></div>
+      <div class="card"><div class="ph" data-label="Mohenjo-daro"><img alt="Mohenjo-daro" data-wiki="Mohenjo-daro"></div><div class="body"><span class="tag">UNESCO · 2500 BCE</span><h3>Mohenjo-daro</h3><p>A planned city of the Indus Valley Civilisation with drainage and the famous Great Bath.</p></div></div>
+      <div class="card"><div class="ph" data-label="Rohtas Fort"><img alt="Rohtas Fort" data-wiki="Rohtas_Fort"></div><div class="body"><span class="tag">UNESCO</span><h3>Rohtas Fort</h3><p>A massive 16th-century fortress built by Sher Shah Suri near Jhelum.</p></div></div>
+      <div class="card"><div class="ph" data-label="Taxila"><img alt="Taxila" data-wiki="Taxila"></div><div class="body"><span class="tag">UNESCO · Gandhara</span><h3>Taxila</h3><p>One of the oldest university towns in the world, rich with Buddhist stupas and monasteries.</p></div></div>
+      <div class="card"><div class="ph" data-label="Makli Necropolis"><img alt="Makli Necropolis" data-wiki="Makli_Necropolis"></div><div class="body"><span class="tag">UNESCO · Thatta</span><h3>Makli Necropolis</h3><p>One of the largest graveyards in the world, with half a million tombs and beautiful stonework.</p></div></div>
+      <div class="card"><div class="ph" data-label="Wazir Khan Mosque"><img alt="Wazir Khan Mosque" data-wiki="Wazir_Khan_Mosque"></div><div class="body"><span class="tag">Lahore</span><h3>Wazir Khan Mosque</h3><p>Famous for its dazzling tile work (kashi-kari) and calligraphy from the 17th century.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CITIES -->
+<section class="alt">
+  <div class="wrap">
+    <div class="head"><h2>Major cities</h2></div>
+    <div class="cards">
+      <div class="card"><div class="ph" data-label="Lahore"><img alt="Lahore" data-wiki="Lahore"></div><div class="body"><span class="tag">Punjab</span><h3>Lahore</h3><p>The cultural heart of Pakistan — food, poetry, festivals, Mughal monuments and endless energy.</p></div></div>
+      <div class="card"><div class="ph" data-label="Karachi"><img alt="Karachi" data-wiki="Karachi"></div><div class="body"><span class="tag">Sindh</span><h3>Karachi</h3><p>The “City of Lights” — Pakistan’s largest city, business capital and main seaport.</p></div></div>
+      <div class="card"><div class="ph" data-label="Islamabad"><img alt="Islamabad" data-wiki="Islamabad"></div><div class="body"><span class="tag">Capital</span><h3>Islamabad</h3><p>A modern, green planned city at the foot of the Margalla Hills.</p></div></div>
+      <div class="card"><div class="ph" data-label="Rawalpindi"><img alt="Rawalpindi" data-wiki="Rawalpindi"></div><div class="body"><span class="tag">Punjab</span><h3>Rawalpindi</h3><p>The twin city of Islamabad, known for its bazaars, Raja Bazaar and rich history.</p></div></div>
+      <div class="card"><div class="ph" data-label="Peshawar"><img alt="Peshawar" data-wiki="Peshawar"></div><div class="body"><span class="tag">KPK</span><h3>Peshawar</h3><p>One of the oldest living cities in South Asia, famous for Qissa Khwani Bazaar and chapli kebab.</p></div></div>
+      <div class="card"><div class="ph" data-label="Quetta"><img alt="Quetta" data-wiki="Quetta"></div><div class="body"><span class="tag">Balochistan</span><h3>Quetta</h3><p>The “Fruit Garden of Pakistan”, surrounded by mountains and famous for Sajji.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section id="languages">
+  <div class="wrap">
+    <div class="head">
+      <h2>Languages of Pakistan</h2>
+      <p>More than 70 languages are spoken in Pakistan. Urdu connects the whole country, while English is used in government, business and education.</p>
+    </div>
+    <div class="lang">
+      <div><div class="s">اردو</div><h3>Urdu</h3><small>National language · lingua franca</small></div>
+      <div><div class="s">English</div><h3>English</h3><small>Official language</small></div>
+      <div><div class="s">پنجابی</div><h3>Punjabi</h3><small>Most spoken mother tongue · Punjab</small></div>
+      <div><div class="s">پښتو</div><h3>Pashto</h3><small>Khyber Pakhtunkhwa &amp; Balochistan</small></div>
+      <div><div class="s">سنڌي</div><h3>Sindhi</h3><small>Sindh</small></div>
+      <div><div class="s">سرائیکی</div><h3>Saraiki</h3><small>Southern Punjab</small></div>
+      <div><div class="s">بلوچی</div><h3>Balochi</h3><small>Balochistan</small></div>
+      <div><div class="s">براہوی</div><h3>Brahui</h3><small>Balochistan</small></div>
+      <div><div class="s">ہندکو</div><h3>Hindko</h3><small>Peshawar, Abbottabad, Hazara</small></div>
+      <div><div class="s">کشمیری</div><h3>Kashmiri</h3><small>Azad Kashmir</small></div>
+      <div><div class="s">شینا</div><h3>Shina</h3><small>Gilgit &amp; Diamer</small></div>
+      <div><div class="s">بلتی</div><h3>Balti</h3><small>Skardu · Baltistan</small></div>
+      <div><div class="s">کھوار</div><h3>Khowar</h3><small>Chitral</small></div>
+      <div><div class="s">بروشسکی</div><h3>Burushaski</h3><small>Hunza · a language isolate</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOD -->
+<section id="food" class="alt">
+  <div class="wrap">
+    <div class="head">
+      <h2>Famous food</h2>
+      <p>Pakistani cuisine is rich, spicy and full of flavour — every city has its own speciality.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="ph" data-label="Biryani"><img alt="Biryani" data-wiki="Biryani"></div><div class="body"><span class="tag">Karachi</span><h3>Biryani</h3><p>Fragrant basmati rice layered with spiced meat — a favourite at every celebration.</p></div></div>
+      <div class="card"><div class="ph" data-label="Nihari"><img alt="Nihari" data-wiki="Nihari"></div><div class="body"><span class="tag">Breakfast of kings</span><h3>Nihari</h3><p>Slow-cooked beef or lamb stew, eaten with naan, ideal on a winter morning.</p></div></div>
+      <div class="card"><div class="ph" data-label="Chapli Kebab"><img alt="Chapli kebab" data-wiki="Chapli_kebab"></div><div class="body"><span class="tag">Peshawar</span><h3>Chapli Kebab</h3><p>A flat, crispy minced-meat patty full of tomatoes, coriander and spices.</p></div></div>
+      <div class="card"><div class="ph" data-label="Haleem"><img alt="Haleem" data-wiki="Haleem"></div><div class="body"><span class="tag">Ramadan favourite</span><h3>Haleem</h3><p>A thick stew of lentils, wheat and meat, slow-cooked into a rich comforting dish.</p></div></div>
+      <div class="card"><div class="ph" data-label="Seekh Kebab"><img alt="Seekh kebab" data-wiki="Seekh_kebab"></div><div class="body"><span class="tag">BBQ</span><h3>Seekh Kebab &amp; BBQ</h3><p>Skewered minced meat grilled over charcoal — smoky, juicy and unforgettable.</p></div></div>
+      <div class="card"><div class="ph" data-label="Lassi"><img alt="Lassi" data-wiki="Lassi"></div><div class="body"><span class="tag">Punjab</span><h3>Lassi</h3><p>A cooling yoghurt drink, served sweet or salty, perfect in the summer heat.</p></div></div>
+      <div class="card"><div class="ph" data-label="Chaunsa Mango"><img alt="Chaunsa mango" data-wiki="Chaunsa"></div><div class="body"><span class="tag">King of fruits</span><h3>Mangoes</h3><p>Pakistan is one of the world’s top mango producers. Chaunsa and Sindhri are legendary.</p></div></div>
+      <div class="card"><div class="ph" data-label="Sajji"><img alt="Sajji" data-wiki="Sajji"></div><div class="body"><span class="tag">Balochistan</span><h3>Sajji</h3><p>Whole lamb or chicken, marinated in salt and roasted slowly over an open fire.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CULTURE -->
+<section id="culture">
+  <div class="wrap">
+    <div class="head">
+      <h2>Culture &amp; famous things</h2>
+      <p>Colourful traditions, music, sports and craftsmanship that make Pakistan unique.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="ph" data-label="Truck Art"><img alt="Pakistani truck art" data-wiki="Truck_art"></div><div class="body"><span class="tag">Folk art</span><h3>Truck Art</h3><p>Trucks and buses are decorated with bright paintings, poetry and mirror work — rolling art galleries.</p></div></div>
+      <div class="card"><div class="ph" data-label="Cricket"><img alt="Pakistan cricket" data-wiki="Pakistan_national_cricket_team"></div><div class="body"><span class="tag">Sport</span><h3>Cricket</h3><p>1992 World Cup champions and 2009 T20 champions — cricket is a national passion.</p></div></div>
+      <div class="card"><div class="ph" data-label="Qawwali"><img alt="Qawwali" data-wiki="Qawwali"></div><div class="body"><span class="tag">Music</span><h3>Qawwali</h3><p>Devotional Sufi music made world-famous by Nusrat Fateh Ali Khan.</p></div></div>
+      <div class="card"><div class="ph" data-label="Shandur Polo"><img alt="Shandur polo festival" data-wiki="Shandur_Polo_Festival"></div><div class="body"><span class="tag">Festival</span><h3>Shandur Polo Festival</h3><p>Polo played at 3,700 m on the “Roof of the World”, between Gilgit and Chitral teams.</p></div></div>
+      <div class="card"><div class="ph" data-label="Kalash"><img alt="Kalash people" data-wiki="Kalash_people"></div><div class="body"><span class="tag">Chitral</span><h3>Kalash Valleys</h3><p>A unique community with colourful dress and festivals like Chilam Joshi and Uchau.</p></div></div>
+      <div class="card"><div class="ph" data-label="Khewra Salt Mine"><img alt="Khewra Salt Mine" data-wiki="Khewra_Salt_Mine"></div><div class="body"><span class="tag">Punjab</span><h3>Khewra Salt Mine</h3><p>The second largest salt mine in the world, famous for glowing Himalayan pink salt.</p></div></div>
+      <div class="card"><div class="ph" data-label="Markhor"><img alt="Markhor" data-wiki="Markhor"></div><div class="body"><span class="tag">National animal</span><h3>Markhor</h3><p>A majestic wild goat with spiral horns, found in the northern mountains.</p></div></div>
+      <div class="card"><div class="ph" data-label="Shalwar Kameez"><img alt="Shalwar kameez" data-wiki="Shalwar_kameez"></div><div class="body"><span class="tag">National dress</span><h3>Shalwar Kameez</h3><p>The national dress worn by men and women, with beautiful regional embroidery and fabrics.</p></div></div>
+    </div>
+
+    <div class="head" style="margin-top:90px"><h2>Festivals</h2></div>
+    <div class="prov">
+      <div><h3>Eid-ul-Fitr &amp; Eid-ul-Adha</h3><p>The biggest religious festivals, with family gatherings, new clothes and special dishes.</p></div>
+      <div><h3>14 August</h3><p>Independence Day — flags, lights and national songs across the country.</p></div>
+      <div><h3>Basant</h3><p>The spring kite festival of Lahore, celebrating colour and rooftop fun.</p></div>
+      <div><h3>23 March</h3><p>Pakistan Day, with a military parade in Islamabad.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section class="alt">
+  <div class="wrap">
+    <div class="head"><h2>A short timeline</h2></div>
+    <div class="timeline">
+      <div><b>2500 BCE</b><p>The Indus Valley Civilisation flourishes at Mohenjo-daro and Harappa.</p></div>
+      <div><b>500 BCE – 500 CE</b><p>Gandhara kingdom, Buddhist art and the great university of Taxila.</p></div>
+      <div><b>712 CE</b><p>Muhammad bin Qasim arrives in Sindh, introducing Islam to the region.</p></div>
+      <div><b>1526 – 1857</b><p>The Mughal era gives Lahore its forts, gardens and mosques.</p></div>
+      <div><b>1930</b><p>Allama Iqbal presents the idea of a separate homeland for Muslims in South Asia.</p></div>
+      <div><b>23 March 1940</b><p>The Lahore Resolution is passed.</p></div>
+      <div><b>14 August 1947</b><p>Pakistan is born, with Quaid-e-Azam Muhammad Ali Jinnah as its first Governor-General.</p></div>
+      <div><b>1956</b><p>The first Constitution is adopted; Pakistan becomes an Islamic Republic.</p></div>
+      <div><b>1973</b><p>The current Constitution of Pakistan is adopted.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PEOPLE -->
+<section id="people" class="people">
+  <div class="wrap">
+    <div class="head">
+      <h2>Famous Pakistanis</h2>
+      <p>Leaders, thinkers, humanitarians and champions who made the nation proud.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="ph" data-label="Jinnah"><img alt="Muhammad Ali Jinnah" data-wiki="Muhammad_Ali_Jinnah"></div><div class="body"><h3>Muhammad Ali Jinnah</h3><p>Quaid-e-Azam, the founder of Pakistan.</p></div></div>
+      <div class="card"><div class="ph" data-label="Allama Iqbal"><img alt="Allama Iqbal" data-wiki="Muhammad_Iqbal"></div><div class="body"><h3>Allama Iqbal</h3><p>The poet-philosopher of the East who inspired the idea of Pakistan.</p></div></div>
+      <div class="card"><div class="ph" data-label="Abdul Sattar Edhi"><img alt="Abdul Sattar Edhi" data-wiki="Abdul_Sattar_Edhi"></div><div class="body"><h3>Abdul Sattar Edhi</h3><p>Humanitarian who built the world’s largest volunteer ambulance network.</p></div></div>
+      <div class="card"><div class="ph" data-label="Malala Yousafzai"><img alt="Malala Yousafzai" data-wiki="Malala_Yousafzai"></div><div class="body"><h3>Malala Yousafzai</h3><p>Education activist and the youngest Nobel Peace Prize laureate.</p></div></div>
+      <div class="card"><div class="ph" data-label="Abdus Salam"><img alt="Abdus Salam" data-wiki="Abdus_Salam"></div><div class="body"><h3>Dr. Abdus Salam</h3><p>Nobel Prize-winning physicist (1979).</p></div></div>
+      <div class="card"><div class="ph" data-label="Nusrat Fateh Ali Khan"><img alt="Nusrat Fateh Ali Khan" data-wiki="Nusrat_Fateh_Ali_Khan"></div><div class="body"><h3>Nusrat Fateh Ali Khan</h3><p>The “Shahenshah-e-Qawwali”, loved by millions worldwide.</p></div></div>
+      <div class="card"><div class="ph" data-label="Jahangir Khan"><img alt="Jahangir Khan" data-wiki="Jahangir_Khan_(squash_player)"></div><div class="body"><h3>Jahangir Khan</h3><p>Squash legend who stayed unbeaten for over five years.</p></div></div>
+      <div class="card"><div class="ph" data-label="Arfa Karim"><img alt="Arfa Karim" data-wiki="Arfa_Karim"></div><div class="body"><h3>Arfa Karim</h3><p>Child prodigy and the youngest Microsoft Certified Professional in the world.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<section id="author" class="author">
+  <div class="wrap">
+    <div class="box">
+      <div class="avatar">H</div>
+      <div>
+        <h2>About the author</h2>
+        <div class="role">Hashim · Web creator</div>
+        <p>Hi! I’m <b>Hashim</b>, an 18-year-old from <b>Rawalpindi, Pakistan</b>. I made this website to share the beauty, culture and history of my beloved country with the world. Pakistan Zindabad! 🇵🇰</p>
+        <ul class="info">
+          <li>📍 Rawalpindi, Pakistan</li>
+          <li>🎂 Age: 18</li>
+          <li>📞 <a href="tel:+923185334290">0318 5334290</a></li>
+          <li>✉️ <a href="mailto:malikhashim332211@gmail.com">malikhashim332211@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Pakistan – Land of the Pure · Made with ❤️ by Hashim, Rawalpindi</p>
+    <p style="margin-top:6px">Photographs are loaded from <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikipedia / Wikimedia Commons</a> under their respective free licences.</p>
+  </div>
+</footer>
+
+<script>
+// Sticky header
+const hd=document.querySelector('header');
+addEventListener('scroll',()=>hd.classList.toggle('solid',scrollY>60),{passive:true});
+document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('menu').classList.remove('open')));
+
+// Load real photos from Wikipedia automatically
+async function loadImg(img){
+  const title=img.dataset.wiki;
+  const key='wk_'+title;
+  try{
+    let url=null;
+    try{url=sessionStorage.getItem(key)}catch(e){}
+    if(!url){
+      const r=await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(title)+'?redirect=true');
+      if(!r.ok) throw 0;
+      const d=await r.json();
+      const t=d.thumbnail&&d.thumbnail.source;
+      if(!t) throw 0;
+      url=t.replace(/\/\d+px-/,'/1000px-');
+      try{sessionStorage.setItem(key,url)}catch(e){}
+    }
+    img.onload=()=>{ if(!img.hasAttribute('data-hero')) img.classList.add('on'); };
+    img.onerror=()=>{ // fallback to a smaller thumbnail
+      img.onerror=null; img.src=url.replace(/\/\d+px-/,'/500px-');
+    };
+    img.src=url;
+  }catch(e){ /* keeps the green placeholder if offline */ }
+}
+document.querySelectorAll('img[data-wiki]').forEach(loadImg);
+
+// Hero slideshow
+const heroes=[...document.querySelectorAll('img[data-hero]')];
+let h=0;
+function showHero(){
+  heroes.forEach((el,i)=>el.classList.toggle('on',i===h&&el.src));
+}
+setTimeout(()=>{showHero()},1200);
+setInterval(()=>{
+  const ready=heroes.filter(x=>x.src);
+  if(!ready.length)return;
+  h=(h+1)%heroes.length;
+  if(!heroes[h].src)h=0;
+  heroes.forEach((el,i)=>el.classList.toggle('on',i===h));
+},6000);
+heroes.forEach(el=>el.addEventListener('load',()=>{ if(!heroes.some(x=>x.classList.contains('on'))) {h=heroes.indexOf(el);showHero();} }));
+</script>
+</body>
+</html>
